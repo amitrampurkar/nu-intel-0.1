@@ -1,7 +1,7 @@
 ╔══════════════════════════════════════════════════════════════════════╗
 ║          Nu.xyz Competitive Intelligence Hub - Quick Start          ║
 ╚══════════════════════════════════════════════════════════════════════╝
-Test
+
 📦 WHAT YOU HAVE:
    ✓ index.html - Main webpage
    ✓ competitive-intel-hub.jsx - React app component

@@ -17,23 +17,44 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        #root {
+            min-height: 100vh;
+        }
+        /* Loading indicator */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 1.5rem;
+            color: #4B5563;
+        }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <div class="loading">Loading Competitive Intelligence Hub...</div>
+    </div>
     
-    <script type="text/babel" src="./competitive-intel-hub.jsx"></script>
+    <script type="text/babel" data-type="module" src="./competitive-intel-hub.jsx"></script>
     
-    <script type="text/babel">
-        const { StrictMode } = React;
-        const { createRoot } = ReactDOM;
-        
-        const root = createRoot(document.getElementById('root'));
-        root.render(
-            <StrictMode>
-                <CompetitiveIntelHub />
-            </StrictMode>
-        );
+    <script type="text/babel" data-type="module">
+        // Wait for component to be loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const { StrictMode } = React;
+                const { createRoot } = ReactDOM;
+                
+                const rootElement = document.getElementById('root');
+                const root = createRoot(rootElement);
+                
+                root.render(
+                    React.createElement(StrictMode, null,
+                        React.createElement(window.CompetitiveIntelHub)
+                    )
+                );
+            }, 100);
+        });
     </script>
 </body>
 </html>

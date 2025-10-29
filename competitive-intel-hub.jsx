@@ -1,7 +1,33 @@
-import React, { useState } from 'react';
-import { ChevronRight, TrendingUp, Users, DollarSign, Shield, Zap, Target, BookOpen, Bell, Search, Home, BarChart3, GitCompare, Building2, FileText, Lock, Lightbulb, Calendar, ExternalLink, Menu, X } from 'lucide-react';
+// Browser-compatible version - no imports needed
+// React is loaded from CDN
+// Lucide icons are loaded from CDN
 
 const CompetitiveIntelHub = () => {
+  const { useState } = React;
+  
+  // Lucide icons - using inline SVG or Unicode alternatives
+  const ChevronRight = ({ className }) => <span className={className}>›</span>;
+  const TrendingUp = ({ className }) => <span className={className}>📈</span>;
+  const Users = ({ className }) => <span className={className}>👥</span>;
+  const DollarSign = ({ className }) => <span className={className}>💰</span>;
+  const Shield = ({ className }) => <span className={className}>🛡️</span>;
+  const Zap = ({ className }) => <span className={className}>⚡</span>;
+  const Target = ({ className }) => <span className={className}>🎯</span>;
+  const BookOpen = ({ className }) => <span className={className}>📖</span>;
+  const Bell = ({ className }) => <span className={className}>🔔</span>;
+  const Search = ({ className }) => <span className={className}>🔍</span>;
+  const Home = ({ className }) => <span className={className}>🏠</span>;
+  const BarChart3 = ({ className }) => <span className={className}>📊</span>;
+  const GitCompare = ({ className }) => <span className={className}>🔀</span>;
+  const Building2 = ({ className }) => <span className={className}>🏢</span>;
+  const FileText = ({ className }) => <span className={className}>📄</span>;
+  const Lock = ({ className }) => <span className={className}>🔒</span>;
+  const Lightbulb = ({ className }) => <span className={className}>💡</span>;
+  const Calendar = ({ className }) => <span className={className}>📅</span>;
+  const ExternalLink = ({ className }) => <span className={className}>🔗</span>;
+  const Menu = ({ className }) => <span className={className}>☰</span>;
+  const X = ({ className }) => <span className={className}>✕</span>;
+  
   const [selectedCompetitor, setSelectedCompetitor] = useState(null);
   const [activeSection, setActiveSection] = useState('executive-snapshot');
   const [activeView, setActiveView] = useState('overview');
@@ -2642,4 +2668,5 @@ const CompetitiveIntelHub = () => {
   );
 };
 
-export default CompetitiveIntelHub;
+// Component is available globally for browser use
+window.CompetitiveIntelHub = CompetitiveIntelHub;
