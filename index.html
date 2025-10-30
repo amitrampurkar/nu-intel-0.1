@@ -36,25 +36,36 @@
         <div class="loading">Loading Competitive Intelligence Hub...</div>
     </div>
     
-    <script type="text/babel" data-type="module" src="./competitive-intel-hub.jsx"></script>
-    
-    <script type="text/babel" data-type="module">
+    <script type="text/babel" src="./competitive-intel-hub.jsx"></script>
+
+    <script type="text/babel">
         // Wait for component to be loaded
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                const { StrictMode } = React;
-                const { createRoot } = ReactDOM;
-                
-                const rootElement = document.getElementById('root');
-                const root = createRoot(rootElement);
-                
-                root.render(
-                    React.createElement(StrictMode, null,
-                        React.createElement(window.CompetitiveIntelHub)
-                    )
-                );
-            }, 100);
-        });
+        function initApp() {
+            if (typeof window.CompetitiveIntelHub === 'undefined') {
+                // Component not loaded yet, wait a bit longer
+                setTimeout(initApp, 100);
+                return;
+            }
+
+            const { StrictMode } = React;
+            const { createRoot } = ReactDOM;
+
+            const rootElement = document.getElementById('root');
+            const root = createRoot(rootElement);
+
+            root.render(
+                React.createElement(StrictMode, null,
+                    React.createElement(window.CompetitiveIntelHub)
+                )
+            );
+        }
+
+        // Start initialization when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
     </script>
 </body>
 </html>
